@@ -1,0 +1,38 @@
+@using CS.Controllers
+@using CS.Models
+@model ModelValidationData
+
+@{
+    ViewBag.Title = "MVC Data Editors - Model Validation";
+}
+
+@using(Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "validationForm", @class = "edit_form" })) {
+    @Html.DevExpress().FormLayout(settings => {
+    settings.Name = "ModelValidationFormLayout";
+    settings.Width = Unit.Percentage(100);
+    settings.ControlStyle.CssClass = "formLayoutMaxWidth";
+    settings.UseDefaultPaddings = false;
+    settings.Items.Add(model => model.Name, ExampleHelper.FormLayoutItemSettingsMethod).HelpText = "Must be under 50 characters";
+    settings.Items.Add(model => model.Age, ExampleHelper.FormLayoutItemSettingsMethod).HelpText = "Must be between 18 and 100";
+    settings.Items.Add(model => model.Email, ExampleHelper.FormLayoutItemSettingsMethod).HelpText = "Must be a valid email";
+    settings.Items.Add(model => model.ArrivalDate, ExampleHelper.FormLayoutItemSettingsMethod);
+    settings.Items.Add(itemSettings => {
+        itemSettings.ShowCaption = DefaultBoolean.False;
+        itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        itemSettings.SetNestedContent(() => {
+            Html.DevExpress().Button(btnSettings => {
+                btnSettings.Name = "btnUpdate";
+                btnSettings.Text = "Send";
+                btnSettings.ControlStyle.CssClass = "flButton";
+                btnSettings.UseSubmitBehavior = true;
+            }).Render();
+            Html.DevExpress().Button(btnSettings => {
+                btnSettings.Name = "btnClear";
+                btnSettings.Text = "Clear";
+                btnSettings.ControlStyle.CssClass = "flButton";
+                btnSettings.ClientSideEvents.Click = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(); }";
+            }).Render();
+        });
+    });
+}).GetHtml();
+}
