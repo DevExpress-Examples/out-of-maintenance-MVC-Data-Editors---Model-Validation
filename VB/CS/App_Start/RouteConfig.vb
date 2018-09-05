@@ -2,6 +2,8 @@
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
+Imports System.Web.Mvc
+Imports System.Web.Routing
 
 Namespace CS
     Public Class RouteConfig
@@ -9,10 +11,10 @@ Namespace CS
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}")
             routes.IgnoreRoute("{resource}.ashx/{*pathInfo}")
 
-            routes.MapRoute(name:= "Default", url:= "{controller}/{action}/{id}", defaults:= New With { _
-                Key .controller = "Home", _
-                Key .action = "Index", _
-                Key .id = UrlParameter.Optional _
+            routes.MapRoute(name:="Default", url:="{controller}/{action}/{id}", defaults:=New With {
+                Key .controller = "Home",
+                Key .action = "Index",
+                Key .id = UrlParameter.Optional
             })
         End Sub
     End Class

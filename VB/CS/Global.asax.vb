@@ -3,6 +3,8 @@ Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
 Imports System.Web.Http
+Imports System.Web.Mvc
+Imports System.Web.Routing
 
 Namespace CS
     ' Note: For instructions on enabling IIS6 or IIS7 classic mode, 

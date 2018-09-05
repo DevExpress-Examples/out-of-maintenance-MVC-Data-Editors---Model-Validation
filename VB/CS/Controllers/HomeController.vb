@@ -3,7 +3,11 @@ Imports System.Collections.Generic
 Imports System.ComponentModel.DataAnnotations
 Imports System.Linq
 Imports System.Web
+Imports System.Web.Mvc
+Imports System.Web.UI.WebControls
 Imports CS.Models
+Imports DevExpress.Web
+Imports DevExpress.Web.Mvc
 
 Namespace CS.Controllers
     Partial Public Class HomeController
@@ -12,7 +16,7 @@ Namespace CS.Controllers
         Public Function Index() As ActionResult
             Return View("Index", New ModelValidationData())
         End Function
-        <HttpPost> _
+        <HttpPost>
         Public Function Index(ByVal validationData As ModelValidationData) As ActionResult
             If ModelState.IsValid Then
                 Return View("ValidationSuccessPartial")
@@ -50,23 +54,23 @@ Namespace CS.Controllers
         End Function
         Private Shared Function CreateTextBoxSettingsMethod() As Action(Of TextBoxSettings)
             Return Sub(settings)
-                settings.Width = Unit.Percentage(100)
-                settings.Properties.ValidationSettings.Display = Display.Dynamic
-                settings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom
-                settings.ShowModelErrors = True
-                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText
-            End Sub
+                       settings.Width = Unit.Percentage(100)
+                       settings.Properties.ValidationSettings.Display = Display.Dynamic
+                       settings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom
+                       settings.ShowModelErrors = True
+                       settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText
+                   End Sub
         End Function
         Private Shared Function CreateFormLayoutItemSettingsMethod() As Action(Of MVCxFormLayoutItem)
             Return Sub(itemSettings)
-                itemSettings.Width = Unit.Percentage(100)
-                Dim editorSettings As Object = itemSettings.NestedExtensionSettings
-                editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText
-                editorSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom
-                editorSettings.Properties.ValidationSettings.Display = Display.Dynamic
-                editorSettings.ShowModelErrors = True
-                editorSettings.Width = Unit.Percentage(100)
-            End Sub
+                       itemSettings.Width = Unit.Percentage(100)
+                       Dim editorSettings As Object = itemSettings.NestedExtensionSettings
+                       editorSettings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText
+                       editorSettings.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom
+                       editorSettings.Properties.ValidationSettings.Display = Display.Dynamic
+                       editorSettings.ShowModelErrors = True
+                       editorSettings.Width = Unit.Percentage(100)
+                   End Sub
         End Function
     End Class
 End Namespace
