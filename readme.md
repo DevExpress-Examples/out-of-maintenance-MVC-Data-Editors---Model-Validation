@@ -1,4 +1,6 @@
 
+№ MVC Data Editors - How to perform model validation
+
 **What is "Model Validation"?**  See the following MSDN article to learn how the model validation works:  [How to: Validate Model Data Using DataAnnotations Attributes](http://msdn.microsoft.com/en-us/library/ee256141(v=vs.100).aspx).
 
 This demo illustrates how user input can be easily validated using a model-based ASP.NET MVC validation approach. DevExpress MVC extensions can be seamlessly integrated into the ASP.NET MVC validation infrastructure.
