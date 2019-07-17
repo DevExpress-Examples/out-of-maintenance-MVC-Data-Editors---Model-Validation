@@ -1,5 +1,5 @@
 
-№ MVC Data Editors - How to perform model validation
+# MVC Data Editors - How to perform model validation
 
 **What is "Model Validation"?**  See the following MSDN article to learn how the model validation works:  [How to: Validate Model Data Using DataAnnotations Attributes](http://msdn.microsoft.com/en-us/library/ee256141(v=vs.100).aspx).
 
